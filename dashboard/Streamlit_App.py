@@ -143,7 +143,7 @@ def page_2():
                            step=5)
      
     
-    filtered_df["Taux de remboursement"]=filtered_df["AMT_CREDIT"]/(filtered_df["Durée"]*12)
+    filtered_df["Taux de remboursement"]=filtered_df["AMT_CREDIT"]/(filtered_df["Duree"]*12)
     filtered_df = filtered_df[filtered_df["Taux de remboursement"]>(pr/100)]
 
 
