@@ -106,11 +106,14 @@ def page_accueil():
         
         # Requête get api heroku
         if st.sidebar.button("Prediction"):
-            url = f"https://app-scoring-heroku.herokuapp.com////data?proba={id_client}"
+            url = f"https://api-scoring-194928115115.herokuapp.com/data?proba={id_client}"
             response = requests.get(url)
+            
             if response.status_code == 200:
-                    # Affichage de la réponse
-                st.write(response.text)
+               proba=(response["probability"]*100) 
+
+                st.write("La probabilité que le crédit soit correctement remboussé est :" ,proba,"%")
+                st.write("La banque ne prête que pour les crédits dépassant 64% de chance d'être remboursé")
             else:
                 st.write("Erreur lors de la requête GET")
         
