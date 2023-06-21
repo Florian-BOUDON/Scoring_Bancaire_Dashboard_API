@@ -138,7 +138,7 @@ def page_2():
     # Filtre par taux de payment
     pr = st.sidebar.slider("Taux de remboursement",
                            min_value=0,
-                           max_value=100,
+                           max_value=90,
                            value=10,
                            step=5)
      
@@ -152,7 +152,7 @@ def page_2():
     st.sidebar.title('Selectionner l\'âge')
     
     decennie_filter = st.sidebar.selectbox('Filtre par décennie', 
-                                            range(20, 91, 10))
+                                            range(20, 61, 10))
     filtered_df=filtered_df[filtered_df["Decennie"]==decennie_filter]
     
     # Création de 2 graphiques
