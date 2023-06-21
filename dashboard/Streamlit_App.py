@@ -153,11 +153,26 @@ def page_2():
     
     decennie_filter = st.sidebar.selectbox('Filtre par décennie', 
                                             range(20, 91, 10))
-
+    filtered_df=filtered_df[filtered_df["Decennie"]==decennie_filter]
     
+    # Création de 2 graphiques
     col1, col2 = st.columns(2)
     
     with col1:
+        # graphique par genre
+        defaut_par_genre = filtered_df.groupby('Genre')['TARGET'].mean() * 100
+        
+        fig_2, ax_2 = plt.subplots()
+        plt.title('Pourcentage de défaut selon le genre')
+        defaut_par_genre.plot(kind='bar', ax=ax_2)
+        ax_2.set_xlabel('Genre')
+        ax_2.set_ylabel('Pourcentage de défaut')
+        ax_2.set_xticklabels(['Femme', 'Homme'], rotation=0)
+        st.pyplot(fig_2)
+
+
+    with col2:
+        # graphique par âge
         sizes = filtered_df['TARGET'].value_counts(sort=True)
 
         colors = ["lightblue", "red"]
@@ -173,24 +188,7 @@ def page_2():
 
         plt.title('Part des défaults de crédit', fontsize=10)
         ax_1.axis('equal')
-        st.pyplot(fig_1)
-
-
-    with col2:
-        
-        # Filtrer les données en fonction de l'âge sélectionné dans la barre latérale
-        filtered_df = df[df['Decennie'] == decennie_filter]
-
-        # Calculer le pourcentage de défaut par genre
-        defaut_par_genre = filtered_df.groupby('Genre')['TARGET'].mean() * 100
-        
-        fig_2, ax_2 = plt.subplots()
-        plt.title('Pourcentage de défaut selon le genre')
-        defaut_par_genre.plot(kind='bar', ax=ax_2)
-        ax_2.set_xlabel('Genre')
-        ax_2.set_ylabel('Pourcentage de défaut')
-        ax_2.set_xticklabels(['Femme', 'Homme'], rotation=0)
-        st.pyplot(fig_2)
+        st.pyplot(fig_1)        
     
     
 # Sidebar de la page 2
@@ -200,7 +198,7 @@ def page_2():
         
 def main():
     st.sidebar.title("Menu")
-    pages = ["Accueil", "Deuxième page","df_streamlit"]
+    pages = ["Accueil", "Deuxième page"]
     choix = st.sidebar.selectbox("Choisir une page", pages)
 
     if choix == "Accueil":
