@@ -48,8 +48,8 @@ def page_accueil():
                  de scoring bancaire quant à l'octroi de ces clients")
                  
     # Afficher l'image
-    image_path = "Banques.png"
-    st.image(image_path, use_column_width=True)
+    image = Image.open("Banques.png")
+    st.image(image_path)
     
     col1, col2 = st.columns(2)
 
