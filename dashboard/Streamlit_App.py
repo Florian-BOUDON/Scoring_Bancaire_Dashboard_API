@@ -19,7 +19,7 @@ with open('dictionnaire.pickle', 'rb') as fichier:
     
 # Création de tests unitaires
 def test_number_of_variables():
-    assert len(df.columns) == 30, "Le nombre de variables est incorrect."
+    assert len(df.columns) == 31, "Le nombre de variables est incorrect."
     
 def test_variable_types():
     assert all(df.dtypes == "float64"), "Le type des variables est incorrect."
@@ -49,7 +49,7 @@ def page_accueil():
                  
     # Afficher l'image
     image_path = "pictures/Banques.png"
-    st.image(image_path,, use_column_width=True)
+    st.image(image_path, use_column_width=True)
     
     col1, col2 = st.columns(2)
 
@@ -102,15 +102,7 @@ def page_accueil():
         
         # Requête post api heroku
         client = df_post.loc[id_client]
-        
-        if st.button("Prediction_post"):
-            client_dict = client.to_dict()
-            st.write(client_dict)
-            url_post = "https://app-scoring-heroku.herokuapp.com////prediction"
-            response = requests.post(url_post, json=client_dict)
-            st.write(response.json())
-        
-        
+          
         
         # Requête get api heroku
         if st.sidebar.button("Prediction"):
