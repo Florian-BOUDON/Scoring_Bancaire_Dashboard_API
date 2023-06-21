@@ -111,7 +111,7 @@ def page_accueil():
             
             if response.status_code == 200:
                data = response.json()  
-               proba = data["probability"] * 100
+               proba = data["acc"] * 100
                st.write("La probabilité que le crédit soit correctement remboussé est :" ,proba,"%")
                st.write("La banque ne prête que pour les crédits dépassant 64% de chance d'être remboursé")
             else:
