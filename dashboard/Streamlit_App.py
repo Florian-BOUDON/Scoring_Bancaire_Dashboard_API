@@ -153,7 +153,7 @@ def page_2():
     
     decennie_filter = st.sidebar.selectbox('Filtre par décennie', 
                                             range(20, 61, 10))
-    filtered_df=filtered_df[filtered_df["Décennie"]==decennie_filter]
+    filtered_df=filtered_df[filtered_df["Decennie"]==decennie_filter]
     
     # Création de 2 graphiques
     col1, col2 = st.columns(2)
