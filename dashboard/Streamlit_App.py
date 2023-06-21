@@ -11,10 +11,10 @@ import json
 import os
 
 
-df = pd.read_csv("data_streamlit/df_streamlit.csv", index_col="SK_ID_CURR")
+df = pd.read_csv("df_streamlit.csv", index_col="SK_ID_CURR")
 df_post = df.copy()
 
-with open('data_streamlit/dictionnaire.pickle', 'rb') as fichier:
+with open('dictionnaire.pickle', 'rb') as fichier:
     dictionnaire = pickle.load(fichier)
     
 # Création de tests unitaires
