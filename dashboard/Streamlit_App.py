@@ -49,7 +49,7 @@ def page_accueil():
                  
     # Afficher l'image
     image = Image.open("Banques.png")
-    st.image(image_path)
+    st.image(image,use_column_width = auto)
     
     col1, col2 = st.columns(2)
 
