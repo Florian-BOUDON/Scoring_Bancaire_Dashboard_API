@@ -18,7 +18,6 @@ tzdata==2023.3
 Werkzeug==2.3.6
 xgboost==1.7.5
 streamlit
-joblib
 ipython
 shap
 pillow
