@@ -111,9 +111,8 @@ def page_accueil():
             
             if response.status_code == 200:
                proba=(response["probability"]*100) 
-
-                st.write("La probabilité que le crédit soit correctement remboussé est :" ,proba,"%")
-                st.write("La banque ne prête que pour les crédits dépassant 64% de chance d'être remboursé")
+               st.write("La probabilité que le crédit soit correctement remboussé est :" ,proba,"%")
+               st.write("La banque ne prête que pour les crédits dépassant 64% de chance d'être remboursé")
             else:
                 st.write("Erreur lors de la requête GET")
         
