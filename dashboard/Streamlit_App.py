@@ -44,8 +44,8 @@ def page_accueil():
     st.title("Application d'octroi des crédits")
 
 
-    st.subheader("La banque prêt à dépenser vous présente sa nouvelle application \
-                 de scoring bancaire quant à l'octroi de ces clients")
+    st.subheader("La banque prêt-à-dépenser vous présente sa nouvelle application \
+                 de scoring bancaire quant à l'octroi de crédit à ses clients")
                  
     # Afficher l'image
     image = Image.open("Banque.png")
@@ -54,14 +54,14 @@ def page_accueil():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.header("Information relative au crédit bancaire")
+        st.header("Information relative aux crédits bancaires")
         st.write("Un crédit est un engagement et doit être remboursé. "
                  "\nAssurez vous d'être en capacité de rembourser votre crédit")
 
     with col2:
         st.header("Information client")
-        st.write("Les données consernant votre client peuvent récuppérées en page 2. "
-                 "Les explications de l'octroi du crédit se trouve en page 2")
+        st.write("Les données concernant votre client peuvent être récupérées en page 2. "
+                 "Les explications de l'octroi du crédit se trouvent en page 2")
 
 
     # Sidebar elements
@@ -75,7 +75,7 @@ def page_accueil():
 
     if id_client in df.index:
         client = df.loc[id_client]
-        Salaire = st.sidebar.slider("Sélectionner l'ensemble des revenus du clients : ",
+        Salaire = st.sidebar.slider("Sélectionnez l'ensemble des revenus du client : ",
                                     min_value=0,
                                     max_value=100000,
                                     step=500)
@@ -105,14 +105,14 @@ def page_accueil():
           
         
         # Requête get api heroku
-        if st.sidebar.button("Prediction"):
+        if st.sidebar.button("Prédiction"):
             url = f"https://api-scoring-194928115115.herokuapp.com/data?proba={id_client}"
             response = requests.get(url)
             
             if response.status_code == 200:
                data = response.json()  
                proba = data["acc"] * 100
-               st.write("La probabilité que le crédit soit correctement remboussé est :" ,proba,"%")
+               st.write("La probabilité que le crédit soit correctement remboursé est de :" ,proba,"%")
                st.write("La banque ne prête que pour les crédits dépassant 64% de chance d'être remboursé")
             else:
                 st.write("Erreur lors de la requête GET")
@@ -131,7 +131,7 @@ def page_2():
 
     # Filtre par type de contrat
     labels_filtre = list(dictionnaire["Contrat"].keys())
-    selected_label = st.sidebar.selectbox("Selectionner le type de contrat", labels_filtre)
+    selected_label = st.sidebar.selectbox("Selectionnez le type de contrat", labels_filtre)
     filtre_value = dictionnaire["Contrat"][selected_label]
     filtered_df = df[df["Contrat"] == filtre_value]
 
@@ -143,17 +143,17 @@ def page_2():
                            step=5)
      
     
-    filtered_df["Taux de remboursement"]=filtered_df["AMT_CREDIT"]/(filtered_df["Duree"]*12)
+    filtered_df["Taux de remboursement"]=filtered_df["AMT_CREDIT"]/(filtered_df["Durée"]*12)
     filtered_df = filtered_df[filtered_df["Taux de remboursement"]>(pr/100)]
 
 
 
     # Créer la barre latérale (sidebar)
-    st.sidebar.title('Selectionner l\'âge')
+    st.sidebar.title('Sélectionnez l\'âge')
     
     decennie_filter = st.sidebar.selectbox('Filtre par décennie', 
                                             range(20, 61, 10))
-    filtered_df=filtered_df[filtered_df["Decennie"]==decennie_filter]
+    filtered_df=filtered_df[filtered_df["Décennie"]==decennie_filter]
     
     # Création de 2 graphiques
     col1, col2 = st.columns(2)
@@ -192,9 +192,9 @@ def page_2():
     
     
 # Sidebar de la page 2
-    fichier = st.sidebar.file_uploader("Télécharger le fichier client ")
+    fichier = st.sidebar.file_uploader("Téléchargez le fichier client ")
     if fichier is not None:
-        st.write("Le fichier est télécharger")
+        st.write("Le fichier est téléchargé")
         
 def main():
     st.sidebar.title("Menu")

@@ -32,7 +32,7 @@ def get_data():
 
 
 # Définir l'endpoint POST
-@app.route('/prediction', methods=['POST'])
+@app.route('/prédiction', methods=['POST'])
 def prediction():
     # Récupérer le dictionnaire JSON à partir de la requête
     data = request.get_json()
