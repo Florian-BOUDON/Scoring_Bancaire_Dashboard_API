@@ -9,6 +9,19 @@ Ce projet est inspiré de la compétition kaggle https://www.kaggle.com/competit
 - API déployée sur Heroku pour recevoir des requêtes GET et renvoyer des prédictions basé sur le Framework FLASK.
 - Modèle de machine learning pré-entraîné utilisé pour les prédictions.
 
+## Structure du Projet
+
+Le projet est organisé comme suit :
+
+- dasboard (streamlit)
+    -  `Streamlit_App.py`: Fichier principal pour le dashboard interactif développé avec Streamlit.
+    -  `dictionnaire.pickle`: permet d'inverser label-encoder et reccupérer les noms des classes de chaque variable
+    -  `requirements.txt`: Fichier listant les dépendances Python requises pour exécuter le projet.
+
+- les autres fichiers (API)
+   - `api.py`: Fichier contenant le code pour l'API déployée sur Heroku.
+   - `requirements.txt`: Fichier listant les dépendances Python requises pour exécuter le projet.
+
 ## Modèle de Machine Learning
 
 Le détail de la partie Machine Learning se trouve sur le repo : 
