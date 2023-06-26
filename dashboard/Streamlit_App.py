@@ -112,6 +112,16 @@ def page_accueil():
             if response.status_code == 200:
                data = response.json()  
                proba = data["acc"] * 100
+               first_line = "La probabilité que le crédit soit correctement remboursé est de : " + proba + "%"
+               second_line = "La banque ne prête que pour les crédits dépassant 64% de chance d'être remboursé"
+               st.markdown(
+                      """
+                      <div style="border: 1px solid #ccc; background-color: #f9f9f9; padding: 20px; border-radius: 5px;">
+                            <p style="margin: 0;">{first_line}</p>
+                            <p style="margin: 0;">{second_line}</p>
+                      </div>
+                      """,
+                      unsafe_allow_html=True)
                st.write("La probabilité que le crédit soit correctement remboursé est de :" ,proba,"%")
                st.write("La banque ne prête que pour les crédits dépassant 64% de chance d'être remboursé")
             else:
