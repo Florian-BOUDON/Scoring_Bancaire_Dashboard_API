@@ -1,6 +1,6 @@
 # Projet de machine learning avec dashboard interactif et API
 
-Ce projet de machine learning comprend un dashboard interactif développé avec Streamlit et une API déployée sur Heroku. L'objectif de ce projet est de fournir des prédictions basées sur un modèle de machine learning entraîné.
+Ce projet de machine learning comprend un dashboard interactif développé avec Streamlit et une API déployée sur Heroku. L'objectif de ce projet est de fournir des prédictions basées sur un modèle entraîné de machine learning.
 Ce projet est inspiré de la compétition kaggle https://www.kaggle.com/competitions/home-credit-default-risk/
 
 ## Fonctionnalités
@@ -14,13 +14,13 @@ Ce projet est inspiré de la compétition kaggle https://www.kaggle.com/competit
 Le projet est organisé comme suit :
 
 - Dasboard (streamlit)
-    -  `Streamlit_App.py`: Fichier principal pour le dashboard interactif développé avec Streamlit.
-    -  `dictionnaire.pickle`: permet d'inverser label-encoder et reccupérer les noms des classes de chaque variable
-    -  `requirements.txt`: Fichier listant les dépendances Python requises pour exécuter le projet.
+    -  `Streamlit_App.py`: fichier principal pour le dashboard interactif développé avec Streamlit.
+    -  `dictionnaire.pickle`: permet d'inverser le label-encoder et reccupérer les noms des classes de chaque variable.
+    -  `requirements.txt`: fichier listant les dépendances Python requises pour exécuter le projet.
 
 - Les autres fichiers (API)
-   - `api.py`: Fichier contenant le code pour l'API déployée sur Heroku.
-   - `requirements.txt`: Fichier listant les dépendances Python requises pour exécuter le projet.
+   - `api.py`: fichier contenant le code pour l'API déployée sur Heroku.
+   - `requirements.txt`: fichier listant les dépendances Python requises pour exécuter le projet.
 
 ## Modèle de machine learning
 
@@ -35,24 +35,16 @@ https://github.com/Florian-BOUDON/Scoring_Bancaire_Machine_Learning
 ## Les grandes étapes
 
 1. **Collecte des données** : merging des tables.
-2. **Exploration des données** : analyse exploratoire des données pour comprendre leur structure, leurs caractéristiques et effectuer des prétraitements si nécessaire.
+2. **Exploration des données** : analyse exploratoire des données pour comprendre leurs structures, leurs caractéristiques et effectuer des prétraitements si nécessaire.
 3. **Entraînement du modèle** : sélection d'un algorithme de machine learning, division des données en ensembles d'entraînement et de test, entraînement du modèle sur les données d'entraînement.
-4. **Évaluation du modèle** : évaluation des performances du modèle à l'aide de métriques appropriées et ajustement des hyperparamètres création d'une fonction de perte.
+4. **Évaluation du modèle** : évaluation des performances du modèle à l'aide de métriques appropriées et ajustement des hyperparamètres, création d'une fonction de perte.
 5. **Développement du dashboard** : création d'un dashboard interactif.
 6. **Déploiement de l'API** : déploiement de l'API sur Heroku pour permettre l'accès aux prédictions du modèle via des requêtes GET.
 
 ## Prérequis
 
-Avant d'exécuter le projet, assurez-vous d'avoir installé les dépendances suivantes :
-
 - Python 3.x
 - Les bibliothèques Python spécifiées dans le fichier `requirements.txt`
-
-## Installation
-
-1. Clonez ce dépôt vers votre machine locale.
-2. Accédez au répertoire du projet.
-3. Installez les dépendances
 
 
 ## Utilisation streamlit
